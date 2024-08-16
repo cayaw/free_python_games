@@ -29,6 +29,14 @@ def inside(head):
     return -200 < head.x < 190 and -200 < head.y < 190
 
 
+def inside_body():
+    """Return True if food which was just created inside body of snake."""
+    for i in range(len(snake)):
+        if food.x == snake[i].x and food.y == snake[i].y:
+            return True
+    return False
+
+
 def move():
     """Move snake forward one segment."""
     head = snake[-1].copy()
@@ -45,6 +53,11 @@ def move():
         print('Snake:', len(snake))
         food.x = randrange(-15, 15) * 10
         food.y = randrange(-15, 15) * 10
+        insidebody = inside_body()
+        while insidebody:
+            food.x = randrange(-15, 15) * 10
+            food.y = randrange(-15, 15) * 10
+            insidebody = inside_body()
     else:
         snake.pop(0)
 
