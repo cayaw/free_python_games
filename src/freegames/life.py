@@ -52,13 +52,16 @@ def step():
 
 def draw():
     """Draw all the squares."""
-    step()
-    clear()
-    for (x, y), alive in cells.items():
-        color = 'green' if alive else 'black'
-        square(x, y, 10, color)
-    update()
-    ontimer(draw, 100)
+    try:
+        step()
+        clear()
+        for (x, y), alive in cells.items():
+            color = 'green' if alive else 'black'
+            square(x, y, 10, color)
+        update()
+        ontimer(draw, 100)
+    except Terminator:
+        print("Window closed. Stopping update.")
 
 
 setup(420, 420, 370, 0)
