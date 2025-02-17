@@ -5,7 +5,10 @@
 import random
 
 def choose_word():
-    words = ['python', 'hangman', 'challenge', 'programming', 'developer', 'software']
+    words = ['python', 'hangman', 'challenge', 'programming', 'developer', 'software', 'engineering',
+             'bug', 'debug', 'github', 'refactoring', 'development', 'data', 'structure', 'pull', 'push',
+             'commit', 'swe']
+
     return random.choice(words)
 
 
