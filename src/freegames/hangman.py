@@ -1,16 +1,10 @@
-import turtle
+# ASCII hangman
+# submitting 2/17/25
+# Caya Wilcox OSC Project
+
 import random
-# import nltk
-
-# from nltk.corpus import words
-
-# from nltk.corpus import words
-
-# nltk.download('words')
 
 def choose_word():
-    # word_list = [word for word in words.words() if len(word) < 10]
-    # return random.choice(word_list).lower()
     words = ['python', 'hangman', 'challenge', 'programming', 'developer', 'software']
     return random.choice(words)
 
@@ -28,17 +22,77 @@ def draw_hangman(attempts):
         "left leg",
         "right leg"
     ]
-    print(f"Drawing: {stages[6 - attempts]}")  # put Turtle logic here
-
-t = turtle.Turtle()
-t.circle(50)
-turtle.done()
-
-def draw_text(text, x, y):
-    turtle.penup()
-    turtle.goto(x, y)
-    turtle.pendown()
-    turtle.write(text, align="center", font=("Arial", 20, "normal"))
+    print(f"Drawing: {stages[6 - attempts]}")
+    if attempts == 6:
+        print(f"  _________ \n"
+              f"  |       | \n"
+              f"  |      ( ) \n"
+              f"  | \n"
+              f"  | \n"
+              f"  | \n"
+              f"  | \n"
+              f"  | \n"
+              f"_____\n")
+    elif attempts == 5:
+        print(f"  _________ \n"
+              f"  |       | \n"
+              f"  |      ( ) \n"
+              f"  | \n"
+              f"  | \n"
+              f"  | \n"
+              f"  | \n"
+              f"  | \n"
+              f"_____ \n")
+    elif attempts == 4:
+        print(f"  _________ \n"
+              f"  |       | \n"
+              f"  |      ( ) \n"
+              f"  |       | \n"
+              f"  |       |\n"
+              f"  | \n"
+              f"  | \n"
+              f"  | \n"
+              f"_____\n")
+    elif attempts == 3:
+        print(f"  _________ \n"
+              f"  |       | \n"
+              f"  |      ( ) \n"
+              f"  |     / |  \n"
+              f"  |       | \n"
+              f"  | \n"
+              f"  | \n"
+              f"  | \n"
+              f"_____ \n")
+    elif attempts == 2:
+        print(f"  _________ \n"
+              f"  |       | \n"
+              f"  |      ( ) \n"
+              f"  |     / | \\ \n"
+              f"  |       | \n "
+              f"  | \n"
+              f"  | \n"
+              f"  | \n"
+              f"_____ \n")
+    elif attempts == 1:
+        print(f"  _________ \n"
+              f"  |       | \n"
+              f"  |      ( ) \n"
+              f"  |     / | \\ \n"
+              f"  |       | \n"
+              f"  |      / \n "
+              f"  | \n"
+              f"  | \n"
+              f"_____ \n")
+    elif attempts == 0:
+        print(f"  _________ \n"
+              f"  |       | \n"
+              f"  |      ( ) \n"
+              f"  |     / | \\ \n"
+              f"  |       | \n"
+              f"  |      / \\ \n"
+              f"  | \n"
+              f"  | \n"
+              f"_____ \n")
 
 def hangman():
     word = choose_word()
@@ -46,7 +100,6 @@ def hangman():
     attempts = 6
 
     print("Welcome to Hangman!")
-    # display this
 
     while attempts > 0:
         print("\nWord:", display_word(word, guessed_letters))
