@@ -1,16 +1,19 @@
 import turtle
 import random
-import nltk
+# import nltk
 
-from nltk.corpus import words
+# from nltk.corpus import words
 
-from nltk.corpus import words
+# from nltk.corpus import words
 
-nltk.download('words')
+# nltk.download('words')
 
 def choose_word():
-    word_list = [word for word in words.words() if len(word) < 10]
-    return random.choice(word_list).lower()
+    # word_list = [word for word in words.words() if len(word) < 10]
+    # return random.choice(word_list).lower()
+    words = ['python', 'hangman', 'challenge', 'programming', 'developer', 'software']
+    return random.choice(words)
+
 
 def display_word(word, guessed_letters):
     return ' '.join(letter if letter in guessed_letters else '_' for letter in word)
@@ -31,6 +34,11 @@ t = turtle.Turtle()
 t.circle(50)
 turtle.done()
 
+def draw_text(text, x, y):
+    turtle.penup()
+    turtle.goto(x, y)
+    turtle.pendown()
+    turtle.write(text, align="center", font=("Arial", 20, "normal"))
 
 def hangman():
     word = choose_word()
@@ -45,7 +53,7 @@ def hangman():
         guess = input("Guess a letter: ").lower()
 
         if len(guess) != 1 or not guess.isalpha():
-            print("Invalid input. Please enter a single letter.")
+            print("Invalid. Please enter a single letter.")
             continue
 
         if guess in guessed_letters:
